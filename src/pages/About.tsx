@@ -106,7 +106,7 @@ const About = () => {
               </div>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  What started as a small workshop in 2000 has blossomed into a legacy of architectural excellence. Our founder's vision was simple yet profound: transform ordinary ceilings into extraordinary masterpieces.
+                  What started as Muhammad Ishaq's vision in 2000 has blossomed into a legacy of architectural excellence. IQ CEILINGS was founded with a simple yet profound mission: transform ordinary ceilings into extraordinary masterpieces.
                 </p>
                 <p>
                   Today, we're proud to be the trusted name behind hundreds of stunning spaces across the region. From intimate homes to grand commercial venues, each project carries our signature blend of innovation and tradition.

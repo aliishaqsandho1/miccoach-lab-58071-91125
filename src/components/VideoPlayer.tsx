@@ -160,21 +160,21 @@ export const VideoPlayer = ({ src, className = "", showBadge = false, badgeText 
 
       {/* Loading Percentage Indicator */}
       {loadedPercentage < 100 && (
-        <div className="absolute top-4 right-4 px-3 py-1.5 bg-primary/90 backdrop-blur-md rounded-lg text-xs font-bold text-primary-foreground shadow-lg border border-primary/20 animate-fade-in">
+        <div className="absolute top-4 right-4 px-3 py-1.5 bg-primary/90 backdrop-blur-md rounded-lg text-xs font-bold text-primary-foreground shadow-lg border border-primary/20 animate-fade-in z-20">
           {Math.round(loadedPercentage)}%
         </div>
       )}
 
       {/* Badge */}
       {showBadge && (
-        <div className="absolute top-4 left-4 px-3 py-1.5 bg-charcoal/90 backdrop-blur-md rounded-lg text-sm font-semibold text-foreground border border-border shadow-lg">
+        <div className="absolute top-4 left-4 px-3 py-1.5 bg-charcoal/90 backdrop-blur-md rounded-lg text-sm font-semibold text-foreground border border-border shadow-lg z-20">
           {badgeText}
         </div>
       )}
 
       {/* Play/Pause Overlay */}
       {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center bg-charcoal/50 backdrop-blur-sm transition-opacity duration-300">
+        <div className="absolute inset-0 flex items-center justify-center bg-charcoal/50 backdrop-blur-sm transition-opacity duration-300 z-10">
           <Button
             size="icon"
             onClick={togglePlay}
@@ -187,8 +187,8 @@ export const VideoPlayer = ({ src, className = "", showBadge = false, badgeText 
 
       {/* Custom Controls */}
       <div
-        className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal via-charcoal/95 to-transparent p-4 transition-all duration-300 ${
-          showControls || !isPlaying ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal via-charcoal/95 to-transparent p-4 transition-all duration-300 z-30 ${
+          showControls || !isPlaying ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
         }`}
       >
         {/* Progress Bar */}
@@ -248,14 +248,6 @@ export const VideoPlayer = ({ src, className = "", showBadge = false, badgeText 
             {isFullscreen ? <Minimize className="w-5 h-5" /> : <Maximize className="w-5 h-5" />}
           </Button>
         </div>
-      </div>
-
-      {/* Buffer Progress Bar (Background) */}
-      <div className="absolute bottom-[72px] left-4 right-4 h-1 bg-white/10 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-white/20 transition-all duration-300"
-          style={{ width: `${loadedPercentage}%` }}
-        />
       </div>
     </div>
   );

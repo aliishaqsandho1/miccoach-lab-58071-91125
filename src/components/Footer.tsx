@@ -114,7 +114,7 @@ const Footer = () => {
                   <p className="text-xs text-muted-foreground mb-1">Email Us</p>
                   <a 
                     href="mailto:aliishaqsandho@gmail.com" 
-                    className="text-foreground hover:text-primary transition-colors font-medium break-all"
+                    className="text-foreground hover:text-primary transition-colors font-medium break-all hover:underline cursor-pointer"
                   >
                     aliishaqsandho@gmail.com
                   </a>

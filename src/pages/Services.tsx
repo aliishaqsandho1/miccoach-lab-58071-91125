@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Star, CheckCircle, Shield, Clock, Users, Award, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Testimonials } from "@/components/Testimonials";
 import { wordpressAPI, WordPressService } from "@/lib/wordpress-api";
 
 const Services = () => {
@@ -308,61 +309,7 @@ const Services = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              Client <span className="text-primary">Testimonials</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover what our clients say about our premium ceiling solutions and service excellence.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Sarah Chen",
-                role: "Homeowner",
-                content: "The false ceiling transformation in our living room exceeded all expectations. The attention to detail and craftsmanship is remarkable.",
-                rating: 5
-              },
-              {
-                name: "Michael Rodriguez",
-                role: "Commercial Client",
-                content: "Professional, punctual, and perfectionists. Our office space has been completely transformed with their premium ceiling solutions.",
-                rating: 5
-              },
-              {
-                name: "Emily Watson",
-                role: "Interior Designer",
-                content: "I regularly partner with them for my projects. Their expertise in false ceilings and commitment to quality is unmatched in the industry.",
-                rating: 5
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="border-border bg-gradient-to-br from-card to-dark-card p-8 group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
-                <CardContent className="p-0">
-                  {/* Stars */}
-                  <div className="flex mb-6">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-primary fill-current" />
-                    ))}
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-6 leading-relaxed italic">
-                    "{testimonial.content}"
-                  </p>
-                  
-                  <div>
-                    <div className="font-bold text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-primary">{testimonial.role}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-charcoal via-charcoal-light to-charcoal relative overflow-hidden">
