@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* ---- Premium Luxe Design System ---- */
+    --background: 222 14% 10%; /* Charcoal base */
+    --foreground: 36 20% 96%;  /* Warm ivory text */
+
+    --card: 222 14% 12%;
+    --card-foreground: 36 20% 96%;
+
+    --popover: 222 14% 12%;
+    --popover-foreground: 36 20% 96%;
+
+    /* Elegant Gold Accent with soft contrast */
+    --primary: 38 92% 60%; /* Premium soft gold */
+    --primary-foreground: 222 14% 10%;
+
+    /* Secondary - muted greige for balance */
+    --secondary: 220 8% 22%;
+    --secondary-foreground: 36 20% 96%;
+
+    /* Muted neutrals for depth */
+    --muted: 222 8% 16%;
+    --muted-foreground: 36 12% 70%;
+
+    /* Accent - subtle champagne glow */
+    --accent: 38 90% 70%;
+    --accent-foreground: 222 14% 10%;
+
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 36 20% 96%;
+
+    --border: 222 8% 18%;
+    --input: 222 8% 18%;
+    --ring: 38 92% 60%;
+
+    --radius: 0.6rem;
+
+    /* Custom Tokens */
+    --gold: 38 92% 60%;
+    --gold-soft: 38 80% 70%;
+    --gold-dark: 38 85% 50%;
+
+    --charcoal: 222 14% 10%;
+    --charcoal-light: 222 10% 16%;
+    --ivory: 36 20% 96%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(38 92% 60%), hsl(38 90% 70%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 14% 10%), hsl(222 12% 14%));
+    --gradient-overlay: linear-gradient(180deg, hsl(222 14% 10% / 0.7), hsl(222 14% 10% / 0.9));
+
+    /* Shadows */
+    --shadow-primary: 0 10px 40px hsl(38 92% 60% / 0.25);
+    --shadow-card: 0 8px 32px hsl(222 14% 5% / 0.4);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s ease;
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Premium Effects */
+    --glow-primary: 0 0 25px hsl(38 92% 60% / 0.3), 0 0 60px hsl(38 92% 60% / 0.15);
+    --backdrop-blur: blur(12px);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
