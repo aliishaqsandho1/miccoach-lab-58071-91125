@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -25,10 +25,15 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Pricing", path: "/pricing" },
     { name: "Projects", path: "/projects" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
+
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/923458783923?text=Hello%20IQ%20Ceilings!%20I'm%20interested%20in%20your%20services.", "_blank");
+  };
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -108,52 +113,65 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* CTA Button with advanced effects */}
-              <Link to="/contact" className="ml-4">
+              {/* WhatsApp CTA Button */}
+              <div className="ml-4">
                 <Button
-                  className="relative overflow-hidden group bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 hover:scale-105 border border-primary/20"
+                  onClick={handleWhatsApp}
+                  className="relative overflow-hidden group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-500 hover:scale-105 border border-green-400/20"
                 >
                   {/* Animated background gradient */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Shine effect */}
                   <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                   
                   {/* Button content */}
                   <span className="relative z-10 flex items-center gap-2">
-                    <Sparkles className="w-4 h-4" />
-                    Get Quote
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp Us
                   </span>
                   
                   {/* Glow effect */}
-                  <span className="absolute inset-0 rounded-xl blur-xl bg-primary/30 scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                  <span className="absolute inset-0 rounded-xl blur-xl bg-green-500/30 scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                 </Button>
-              </Link>
+              </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden relative z-10 p-2 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110"
-              aria-label="Toggle menu"
-            >
-              <div className="relative w-6 h-6">
-                <span
-                  className={`absolute inset-0 transition-all duration-300 ${
-                    isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
-                  }`}
-                >
-                  <Menu className="w-6 h-6 text-primary" />
-                </span>
-                <span
-                  className={`absolute inset-0 transition-all duration-300 ${
-                    isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0"
-                  }`}
-                >
-                  <X className="w-6 h-6 text-primary" />
-                </span>
-              </div>
-            </button>
+            {/* Mobile WhatsApp & Menu Buttons */}
+            <div className="lg:hidden flex items-center gap-2 relative z-10">
+              {/* WhatsApp Button */}
+              <button
+                onClick={handleWhatsApp}
+                className="p-2 rounded-lg bg-green-500/20 backdrop-blur-sm border border-green-500/50 hover:bg-green-500/30 transition-all duration-300 hover:scale-110"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5 text-green-500" />
+              </button>
+
+              {/* Menu Button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-110"
+                aria-label="Toggle menu"
+              >
+                <div className="relative w-6 h-6">
+                  <span
+                    className={`absolute inset-0 transition-all duration-300 ${
+                      isOpen ? "rotate-180 opacity-0" : "rotate-0 opacity-100"
+                    }`}
+                  >
+                    <Menu className="w-6 h-6 text-primary" />
+                  </span>
+                  <span
+                    className={`absolute inset-0 transition-all duration-300 ${
+                      isOpen ? "rotate-0 opacity-100" : "-rotate-180 opacity-0"
+                    }`}
+                  >
+                    <X className="w-6 h-6 text-primary" />
+                  </span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -202,24 +220,28 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* Mobile CTA */}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="block mt-6"
+              {/* Mobile WhatsApp CTA */}
+              <div
+                className="mt-6"
                 style={{
                   animation: isOpen ? `slideIn 0.3s ease-out ${navLinks.length * 50}ms both` : "none"
                 }}
               >
-                <Button className="w-full relative overflow-hidden group bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold py-4 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300">
-                  <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <Button 
+                  onClick={() => {
+                    setIsOpen(false);
+                    handleWhatsApp();
+                  }}
+                  className="w-full relative overflow-hidden group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    <Sparkles className="w-5 h-5" />
-                    Get Your Free Quote
+                    <MessageCircle className="w-5 h-5" />
+                    Chat on WhatsApp
                   </span>
                 </Button>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
