@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, MessageCircle, Check } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 // Import images
 import bedroomCeiling from "@/assets/bedroom-ceiling.jpg";
@@ -132,7 +133,7 @@ const PricingDetail = () => {
               onClick={handleWhatsApp}
               className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-bold px-10 py-6 text-lg rounded-xl shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
             >
-              <MessageCircle className="mr-2 h-5 w-5" />
+              <img src={whatsappIcon} alt="WhatsApp" className="mr-2 h-5 w-5" />
               Get This Package
             </Button>
           </div>
@@ -214,7 +215,7 @@ const PricingDetail = () => {
                 onClick={handleWhatsApp}
                 className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-bold px-10 py-6 text-lg rounded-xl shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
+                <img src={whatsappIcon} alt="WhatsApp" className="mr-2 h-5 w-5" />
                 Chat on WhatsApp
               </Button>
               <Link to="/pricing">

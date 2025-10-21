@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -127,7 +128,7 @@ const Navbar = () => {
                   
                   {/* Button content */}
                   <span className="relative z-10 flex items-center gap-2">
-                    <MessageCircle className="w-4 h-4" />
+                    <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
                     WhatsApp Us
                   </span>
                   
@@ -145,7 +146,7 @@ const Navbar = () => {
                 className="p-2 rounded-lg bg-primary/20 backdrop-blur-sm border border-primary/50 hover:bg-primary/30 transition-all duration-300 hover:scale-110"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5 text-primary" />
+                <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
               </button>
 
               {/* Menu Button */}
@@ -237,7 +238,7 @@ const Navbar = () => {
                   <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                   <span className="relative z-10 flex items-center justify-center gap-2">
-                    <MessageCircle className="w-5 h-5" />
+                    <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
                     Chat on WhatsApp
                   </span>
                 </Button>

@@ -224,6 +224,198 @@ const Home = () => {
           </div>
         </Carousel>
       </section>
+
+      {/* Ceiling Type Selector Section */}
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
+        <div className="container mx-auto px-6">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6">
+              <Star className="w-4 h-4 text-primary fill-primary" />
+              <span className="text-primary text-sm font-medium tracking-wide">Choose Your Style</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Select Your Perfect Ceiling
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              From elegant essentials to premium masterpieces, find the perfect ceiling design that matches your vision and budget
+            </p>
+          </div>
+
+          {/* Pricing Cards Grid */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Essential Package */}
+            <Link to="/pricing/basic" className="group">
+              <div className="relative h-full bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2">
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                
+                <div className="relative z-10">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary/50 rounded-full mb-6">
+                    <CheckCircle className="w-4 h-4 text-secondary-foreground" />
+                    <span className="text-xs font-semibold text-secondary-foreground">Essential</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    Classic Elegance
+                  </h3>
+                  <p className="text-muted-foreground mb-6 text-sm">
+                    Perfect for modern homes seeking clean, timeless design
+                  </p>
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-primary">80</span>
+                      <span className="text-muted-foreground">PKR/sq.ft</span>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-6">
+                    {["Quality materials", "Clean finish", "Standard designs", "Professional installation"].map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-foreground/80">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <div className="pt-4 border-t border-border">
+                    <div className="flex items-center justify-between text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                      <span>View Designs</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Premium Package - Featured */}
+            <Link to="/pricing/medium" className="group">
+              <div className="relative h-full bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 border-2 border-primary rounded-2xl p-8 hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2">
+                {/* Popular Badge */}
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="px-4 py-1.5 bg-gradient-to-r from-primary to-accent rounded-full shadow-lg">
+                    <span className="text-xs font-bold text-primary-foreground">MOST POPULAR</span>
+                  </div>
+                </div>
+
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                
+                <div className="relative z-10">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/20 rounded-full mb-6 mt-4">
+                    <Award className="w-4 h-4 text-primary" />
+                    <span className="text-xs font-semibold text-primary">Premium</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-2 text-primary">
+                    Designer's Choice
+                  </h3>
+                  <p className="text-muted-foreground mb-6 text-sm">
+                    Sophisticated designs with enhanced detailing
+                  </p>
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-primary">90</span>
+                      <span className="text-muted-foreground">PKR/sq.ft</span>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-6">
+                    {["Premium materials", "Custom patterns", "Advanced lighting", "Expert craftsmanship"].map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-foreground/90 font-medium">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <div className="pt-4 border-t border-primary/30">
+                    <div className="flex items-center justify-between text-sm font-bold text-primary group-hover:gap-3 transition-all">
+                      <span>View Designs</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Luxury Package */}
+            <Link to="/pricing/high" className="group">
+              <div className="relative h-full bg-card border border-border rounded-2xl p-8 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/20 hover:-translate-y-2">
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                
+                <div className="relative z-10">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/20 rounded-full mb-6">
+                    <Star className="w-4 h-4 text-accent fill-accent" />
+                    <span className="text-xs font-semibold text-accent">Luxury</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
+                    Executive Suite
+                  </h3>
+                  <p className="text-muted-foreground mb-6 text-sm">
+                    Ultimate luxury with bespoke architectural elements
+                  </p>
+
+                  {/* Price */}
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl font-bold text-accent">110</span>
+                      <span className="text-muted-foreground">PKR/sq.ft</span>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-3 mb-6">
+                    {["Luxury materials", "Bespoke designs", "Smart lighting", "White-glove service"].map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                        <span className="text-foreground/80">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <div className="pt-4 border-t border-border">
+                    <div className="flex items-center justify-between text-sm font-medium text-accent group-hover:gap-3 transition-all">
+                      <span>View Designs</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-4">
+              Not sure which option is right for you?
+            </p>
+            <Link to="/contact">
+              <Button className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold px-8 py-6 rounded-xl shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105">
+                Get Free Consultation
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Image Gallery Section - Clean & Professional */}
       <section className="py-0">
         <div className="grid md:grid-cols-2 lg:grid-cols-3">

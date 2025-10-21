@@ -1,6 +1,7 @@
-import { MessageCircle, Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import whatsappIcon from "@/assets/whatsapp-icon.png";
 
 const Contact = () => {
   const whatsappNumber = "923458783923";
@@ -66,7 +67,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6">
-              <MessageCircle className="w-4 h-4 text-primary" />
+              <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4" />
               <span className="text-primary text-sm font-medium">Let's Connect on WhatsApp</span>
             </div>
             
@@ -86,7 +87,7 @@ const Contact = () => {
             >
               <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 flex items-center gap-3">
-                <MessageCircle className="w-6 h-6" />
+                <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6" />
                 Chat on WhatsApp Now
               </span>
             </Button>
@@ -124,7 +125,7 @@ const Contact = () => {
                   className="group cursor-pointer border-border bg-card hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1"
                 >
                   <CardContent className="p-6 text-center">
-                    <MessageCircle className="w-8 h-8 text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                    <img src={whatsappIcon} alt="WhatsApp" className="w-8 h-8 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                     <h3 className="font-bold mb-2 group-hover:text-primary transition-colors">
                       {msg.title}
                     </h3>
@@ -196,7 +197,7 @@ const Contact = () => {
             >
               <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
               <span className="relative z-10 flex items-center gap-3">
-                <MessageCircle className="w-6 h-6" />
+                <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6" />
                 Start Your Project Today
               </span>
             </Button>
