@@ -172,23 +172,10 @@ export const VideoPlayer = ({ src, className = "", showBadge = false, badgeText 
         </div>
       )}
 
-      {/* Play/Pause Overlay */}
-      {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center bg-charcoal/50 backdrop-blur-sm transition-opacity duration-300 z-10">
-          <Button
-            size="icon"
-            onClick={togglePlay}
-            className="w-20 h-20 rounded-full bg-primary/90 hover:bg-primary text-primary-foreground shadow-2xl shadow-primary/50 hover:scale-110 transition-all duration-300 border-4 border-white/20"
-          >
-            <Play className="w-10 h-10 ml-1" />
-          </Button>
-        </div>
-      )}
-
       {/* Custom Controls */}
       <div
         className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal via-charcoal/95 to-transparent p-4 transition-all duration-300 z-30 ${
-          showControls || !isPlaying ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+          showControls && isPlaying ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
         }`}
       >
         {/* Progress Bar */}

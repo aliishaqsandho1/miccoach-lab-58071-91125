@@ -18,9 +18,9 @@ const Pricing = () => {
         "Free consultation"
       ],
       popular: false,
-      gradient: "from-blue-500/10 to-cyan-500/10",
-      border: "border-blue-500/20",
-      buttonColor: "from-blue-500 to-cyan-600"
+      gradient: "from-secondary/20 to-muted/20",
+      border: "border-border",
+      buttonColor: "from-secondary to-muted"
     },
     {
       id: "medium",
@@ -55,9 +55,9 @@ const Pricing = () => {
         "Exclusive finishing options"
       ],
       popular: false,
-      gradient: "from-purple-500/10 to-pink-500/10",
-      border: "border-purple-500/20",
-      buttonColor: "from-purple-500 to-pink-600"
+      gradient: "from-accent/20 to-primary/10",
+      border: "border-accent/30",
+      buttonColor: "from-accent to-primary"
     }
   ];
 
@@ -184,7 +184,7 @@ const Pricing = () => {
               <Button 
                 size="lg"
                 onClick={() => window.open("https://wa.me/923458783923?text=Hi!%20I%20need%20help%20choosing%20the%20right%20package.", "_blank")}
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 py-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold px-8 py-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300"
               >
                 Chat on WhatsApp
               </Button>

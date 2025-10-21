@@ -117,10 +117,10 @@ const Navbar = () => {
               <div className="ml-4">
                 <Button
                   onClick={handleWhatsApp}
-                  className="relative overflow-hidden group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-500 hover:scale-105 border border-green-400/20"
+                  className="relative overflow-hidden group bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold px-8 py-3 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 hover:scale-105 border border-primary/20"
                 >
                   {/* Animated background gradient */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Shine effect */}
                   <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -132,7 +132,7 @@ const Navbar = () => {
                   </span>
                   
                   {/* Glow effect */}
-                  <span className="absolute inset-0 rounded-xl blur-xl bg-green-500/30 scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                  <span className="absolute inset-0 rounded-xl blur-xl bg-primary/30 scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
                 </Button>
               </div>
             </div>
@@ -142,10 +142,10 @@ const Navbar = () => {
               {/* WhatsApp Button */}
               <button
                 onClick={handleWhatsApp}
-                className="p-2 rounded-lg bg-green-500/20 backdrop-blur-sm border border-green-500/50 hover:bg-green-500/30 transition-all duration-300 hover:scale-110"
+                className="p-2 rounded-lg bg-primary/20 backdrop-blur-sm border border-primary/50 hover:bg-primary/30 transition-all duration-300 hover:scale-110"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5 text-green-500" />
+                <MessageCircle className="w-5 h-5 text-primary" />
               </button>
 
               {/* Menu Button */}
@@ -232,9 +232,9 @@ const Navbar = () => {
                     setIsOpen(false);
                     handleWhatsApp();
                   }}
-                  className="w-full relative overflow-hidden group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all duration-300"
+                  className="w-full relative overflow-hidden group bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-semibold py-4 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300"
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <MessageCircle className="w-5 h-5" />

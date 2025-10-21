@@ -31,8 +31,8 @@ const PricingDetail = () => {
         { src: kitchenCeiling, alt: "Basic Kitchen Ceiling Design" },
         { src: officeCeiling, alt: "Basic Office Ceiling Design" }
       ],
-      gradient: "from-blue-500/10 to-cyan-500/10",
-      accentColor: "text-blue-500"
+      gradient: "from-secondary/20 to-muted/20",
+      accentColor: "text-secondary-foreground"
     },
     medium: {
       name: "Medium Design",
@@ -75,8 +75,8 @@ const PricingDetail = () => {
         { src: officeCeiling, alt: "High-end Office Ceiling Design" },
         { src: bedroomCeiling, alt: "High-end Bedroom Ceiling Design" }
       ],
-      gradient: "from-purple-500/10 to-pink-500/10",
-      accentColor: "text-purple-500"
+      gradient: "from-accent/20 to-primary/10",
+      accentColor: "text-accent-foreground"
     }
   };
 
@@ -130,7 +130,7 @@ const PricingDetail = () => {
             <Button 
               size="lg"
               onClick={handleWhatsApp}
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-10 py-6 text-lg rounded-xl shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105"
+              className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-bold px-10 py-6 text-lg rounded-xl shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               Get This Package
@@ -212,7 +212,7 @@ const PricingDetail = () => {
               <Button 
                 size="lg"
                 onClick={handleWhatsApp}
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold px-10 py-6 text-lg rounded-xl shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-primary-foreground font-bold px-10 py-6 text-lg rounded-xl shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Chat on WhatsApp
