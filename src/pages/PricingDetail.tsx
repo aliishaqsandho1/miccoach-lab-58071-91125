@@ -1,19 +1,39 @@
 import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { ArrowLeft, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import whatsappIcon from "@/assets/whatsapp-icon.png";
-
-// Import images
-import bedroomCeiling from "@/assets/bedroom-ceiling.jpg";
-import livingRoomCeiling from "@/assets/living-room-ceiling.jpg";
-import kitchenCeiling from "@/assets/kitchen-ceiling.jpg";
-import officeCeiling from "@/assets/office-ceiling.jpg";
-import commercialCeiling from "@/assets/commercial-ceiling.jpg";
-import restaurantCeiling from "@/assets/restaurant-ceiling.jpg";
+import { wordpressAPI } from "@/lib/wordpress-api";
 
 const PricingDetail = () => {
   const { id } = useParams();
+  const [galleryImages, setGalleryImages] = useState<Array<{ src: string; alt: string }>>([]);
+
+  useEffect(() => {
+    const fetchGalleryImages = async () => {
+      try {
+        const galleries = await wordpressAPI.getGalleries();
+        if (galleries && galleries.length > 0) {
+          const gallery = galleries[0];
+          if (gallery.acf?.team_working) {
+            // Filter only images (not videos)
+            const images = gallery.acf.team_working
+              .filter((item) => !item.url.endsWith('.mp4'))
+              .map((item) => ({
+                src: item.sizes.large || item.url,
+                alt: item.title || "Ceiling Design"
+              }));
+            setGalleryImages(images);
+          }
+        }
+      } catch (error) {
+        console.error("Failed to fetch gallery images:", error);
+      }
+    };
+
+    fetchGalleryImages();
+  }, []);
 
   const pricingData: Record<string, any> = {
     basic: {
@@ -26,11 +46,6 @@ const PricingDetail = () => {
         "Basic lighting integration",
         "1 year warranty",
         "Free consultation"
-      ],
-      images: [
-        { src: bedroomCeiling, alt: "Basic Bedroom Ceiling Design" },
-        { src: kitchenCeiling, alt: "Basic Kitchen Ceiling Design" },
-        { src: officeCeiling, alt: "Basic Office Ceiling Design" }
       ],
       gradient: "from-secondary/20 to-muted/20",
       accentColor: "text-secondary-foreground"
@@ -47,12 +62,6 @@ const PricingDetail = () => {
         "Free consultation & design mock-up",
         "Priority support"
       ],
-      images: [
-        { src: livingRoomCeiling, alt: "Medium Living Room Ceiling Design" },
-        { src: bedroomCeiling, alt: "Medium Bedroom Ceiling Design" },
-        { src: commercialCeiling, alt: "Medium Commercial Ceiling Design" },
-        { src: kitchenCeiling, alt: "Medium Kitchen Ceiling Design" }
-      ],
       gradient: "from-primary/20 to-accent/20",
       accentColor: "text-primary"
     },
@@ -68,13 +77,6 @@ const PricingDetail = () => {
         "Free consultation & 3D visualization",
         "Priority support & maintenance",
         "Exclusive finishing options"
-      ],
-      images: [
-        { src: commercialCeiling, alt: "High-end Commercial Ceiling Design" },
-        { src: restaurantCeiling, alt: "High-end Restaurant Ceiling Design" },
-        { src: livingRoomCeiling, alt: "High-end Living Room Ceiling Design" },
-        { src: officeCeiling, alt: "High-end Office Ceiling Design" },
-        { src: bedroomCeiling, alt: "High-end Bedroom Ceiling Design" }
       ],
       gradient: "from-accent/20 to-primary/10",
       accentColor: "text-accent-foreground"
@@ -177,23 +179,29 @@ const PricingDetail = () => {
             </h2>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {tier.images.map((image: any, index: number) => (
-                <div 
-                  key={index}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-sm font-medium">{image.alt}</p>
+              {galleryImages.length > 0 ? (
+                galleryImages.map((image: any, index: number) => (
+                  <div 
+                    key={index}
+                    className="group relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in hover:-translate-y-2"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <p className="text-sm font-medium">{image.alt}</p>
+                    </div>
                   </div>
+                ))
+              ) : (
+                <div className="col-span-full text-center text-muted-foreground py-8">
+                  Loading gallery images...
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
